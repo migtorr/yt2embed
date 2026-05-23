@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "name": "Redirect Youtube Video to Embed Page",
   "description": "Automatically redirects video pages to their embed equivalent.",
   "short_name": "yt2embed",
@@ -11,15 +11,19 @@
     "256": "assets/icon_256.png"
   },
   "host_permissions": [
-    "https://youtube.com/watch*",
-    "https://www.youtube.com/watch*",
-    "https://youtube.com/shorts*",
-    "https://www.youtube.com/shorts*"
+    "*://*.youtube.com/watch*",
+    "*://*.youtube.com/shorts/*",
+    "*://www.youtube-nocookie.com/embed/*",
+    "*://www.youtube.com/embed/*"
   ],
   "permissions": [
-    "declarativeNetRequestWithHostAccess",
-    "storage"
+    "storage",
+    "webRequest",
+    "webRequestBlocking"
   ],
+  "background": {
+    "scripts": ["background.js"]
+  },
   "action": {
     "default_popup": "popup.html",
     "default_title": "Settings - yt2embed",
